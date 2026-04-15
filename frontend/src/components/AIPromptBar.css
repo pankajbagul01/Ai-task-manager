@@ -1,0 +1,101 @@
+.prompt-bar-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.prompt-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  border-radius: var(--radius-full);
+  background: rgba(19, 19, 26, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all var(--transition-normal);
+}
+
+.prompt-bar:focus-within {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: var(--shadow-glow), 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.prompt-icon {
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.icon-active {
+  animation: pulseColor 4s infinite alternate;
+}
+
+.prompt-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  outline: none;
+  font-family: inherit;
+}
+
+.prompt-input::placeholder {
+  color: var(--text-muted);
+}
+
+.prompt-submit {
+  background: var(--bg-glass);
+  color: var(--text-muted);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.prompt-submit.active {
+  background: var(--accent-gradient);
+  color: white;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+}
+
+.prompt-submit.active:hover {
+  transform: scale(1.05);
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+.prompt-error {
+  padding: 0.75rem 1.5rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseColor {
+  0% { color: var(--accent-primary); }
+  50% { color: var(--accent-secondary); }
+  100% { color: #ec4899; }
+}

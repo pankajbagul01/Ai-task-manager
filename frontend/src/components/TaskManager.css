@@ -1,0 +1,110 @@
+.task-manager {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-card {
+  padding: 1.5rem;
+  border-left: 4px solid transparent;
+  transition: box-shadow var(--transition-fast);
+}
+
+.task-card:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+.task-card.priority-low { border-left-color: var(--priority-low); }
+.task-card.priority-medium { border-left-color: var(--priority-medium); }
+.task-card.priority-high { border-left-color: var(--priority-high); }
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.task-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.completed-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.task-desc {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.task-meta {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  margin-left: auto;
+}
+
+.status-badge.pending { background: rgba(245, 158, 11, 0.1); color: var(--status-pending); border: 1px solid rgba(245, 158, 11, 0.2); }
+.status-badge.in-progress { background: rgba(59, 130, 246, 0.1); color: var(--status-in-progress); border: 1px solid rgba(59, 130, 246, 0.2); }
+.status-badge.completed { background: rgba(16, 185, 129, 0.1); color: var(--status-completed); border: 1px solid rgba(16, 185, 129, 0.2); }
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background: var(--bg-glass-hover);
+  color: var(--text-primary);
+}
+
+.icon-btn.active {
+  background: var(--status-completed);
+  border-color: var(--status-completed);
+  color: white;
+}
+
+.icon-btn.delete:hover {
+  color: var(--priority-high);
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+}
